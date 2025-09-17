@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        /* --- Base Styles --- */
+        body, html {
+            width: 100%; height: 100%; margin: 0; padding: 0;
+            font-family: sans-serif;
+            overflow: hidden;
+            /* No background-color here prevents the white flash */
+        }
+        #graph { 
+            width: 100%; 
+            height: 100%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+        }
+
+        /* --- Tooltip Style --- */
+        .tooltip {
+            position: absolute;
+            text-align: center;
+            padding: 8px;
+            font: 12px sans-serif;
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        /* --- Clickable Bar Style --- */
+        .bar {
+            cursor: pointer;
+        }
+        .bar:hover {
+            filter: brightness(1.1);
+        }
+        
+        /* --- Night Mode Tooltip Override --- */
+        /* A night-mode class is added by JS for this */
+        .night-mode .tooltip {
+            background: #444;
+            border-color: #666;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div id="graph">
+        <p>Please select a parent tag and click 'Analyze' to view the graph.</p>
+    </div>
+    
+    <div class="tooltip"></div>
+    
+    <script src="d3.min.js"></script>
+    <script src="graph.js"></script>
+</body>
+</html>
